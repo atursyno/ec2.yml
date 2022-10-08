@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "This template creates ec2 intance" 
+Resources:     
+  WebEc2Instance: # Logical Name or Logical ID. Logical ID/Name has to be unique within your template
+    Type: "AWS::EC2::Instance" # Key and Vlue is reserved ( Pre Defined by AWS)
+    Properties: 
+      ImageId: "ami-026b57f3c383c2eec"
+      InstanceType: "t2.micro"
+      KeyName: "MacBookProKey"
+      SecurityGroupIds:
+        - !Ref WebEc2InstanceSecurityGroup #Reference to the recource, Reference to the logical ID
+  WebEc2InstanceSecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupDescription: "This is a sec group for my Web Instances"
+      GroupName: "WebInstanceSG"
+      VpcId: "vpc-003f56e11d09f6590"
+
+
+
+
+
+
+
+
+
+
+      # AWS TemplateFormatVersion
